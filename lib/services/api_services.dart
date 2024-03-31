@@ -7,7 +7,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ApiServices {
   final _dio = Dio(BaseOptions(
-      baseUrl: ApiHelpers.baseUrl, headers: {"Authorization": "Bearer ${dotenv.env['API_KEY']}"}));
+      baseUrl: ApiHelpers.baseUrl,
+      headers: {"Authorization": "Bearer ${dotenv.env['API_KEY']}"}));
 
   Future<List> getAiModels() async {
     print("function called");
