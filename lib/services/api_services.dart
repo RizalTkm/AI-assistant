@@ -3,10 +3,11 @@ import 'package:chat_gpt_application/models/aiModels_response_model.dart';
 import 'package:chat_gpt_application/models/chat_response_model.dart';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ApiServices {
   final _dio = Dio(BaseOptions(
-      baseUrl: ApiHelpers.baseUrl, headers: {"Authorization": "Bearer ${ApiHelpers.baseUrl}"}));
+      baseUrl: ApiHelpers.baseUrl, headers: {"Authorization": "Bearer ${dotenv.env['API_KEY']}"}));
 
   Future<List> getAiModels() async {
     print("function called");
@@ -21,9 +22,6 @@ class ApiServices {
       for (var i in resultList!) {
         list.add(i.id);
       }
-
-      //  print(list);
-
       return list;
     } catch (e) {
       print(e);
