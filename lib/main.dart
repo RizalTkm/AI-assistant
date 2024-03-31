@@ -4,9 +4,13 @@ import 'package:chat_gpt_application/providers/apiservice_provider.dart';
 import 'package:chat_gpt_application/providers/speach_to_text_provider.dart';
 import 'package:chat_gpt_application/providers/splash_screen_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+
+  await dotenv.load(fileName: '.env');
+ 
   runApp(
     MultiProvider(
       providers: [
@@ -23,6 +27,7 @@ void main() {
       child: const MyApp(),
     ),
   );
+  
 }
 
 class MyApp extends StatelessWidget {
